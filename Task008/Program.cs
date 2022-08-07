@@ -3,17 +3,16 @@
 
 Console.Write("Введите number: ");
 int number = int.Parse(Console.ReadLine());
-int count = 1;
-String Str = null;
 
-while (count <= number)
+//String Str = null;
+
+for (int i = 1; i <= number; i++)
 {
-    if (count % 2 == 0)
+    if (i % 2 == 0)
     {
-        Str = string.Concat(Str + count + ", ");
-        //Console.Write($"{count}, ");
+        //Str = string.Concat(Str + count + ", ");
+        Console.Write($"{i}, ");
     }
-    count++;
 }
 
-Console.WriteLine(Str.Substring(0, Str.Length - 2));
+//Console.WriteLine(Str.Substring(0, Str.Length - 2));
