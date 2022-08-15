@@ -13,10 +13,24 @@ int MaxArray(int[] Array) //метод поиска и возврата макс
     return Max;
 }
 
-int[] array = { 100015, 5472, 593, 484, 8565, 16, 67, 887 };
+int MinArray(int[] Array) //метод поиска и возврата мин.в массиве
+{
+    int MinArray = Array[0];
+
+    for (int i = 1; i < Array.Length; i++)
+    {
+        if (Array[i] < MinArray) MinArray = Array[i];
+    }
+    return MinArray;
+}
+
+int[] array = { 100015, 1, 593, 484, 8565, 10, 67, 887 };
 
 int res = MaxArray(array);
 Console.WriteLine($"Макс.найден при помощи функции, равен {res}");
+
+res = MinArray(array);
+Console.WriteLine($"Минимум найден при помощи функции, равен {res}");
 
 
 //int result = array[0];
