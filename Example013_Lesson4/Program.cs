@@ -106,8 +106,6 @@ PrintImage(pic);
 
 double Factorial(int n)
 {
-    //0!=0
-    //1!=0
     if (n == 1) return 1;
     else return n * Factorial(n - 1);
 }
