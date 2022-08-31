@@ -27,27 +27,25 @@ void PrintArray(int[,] arr)
     }
 }
 
+int SumOfArrayRow(int[,] arr, int indexRow) //функция возвращает сумму заданной строки массива
+{
+    int SumRow = arr[indexRow, 0];
+    for (int j = 1; j < arr.GetLength(1); j++)
+        SumRow += arr[indexRow, j];
+    return SumRow;
+}
+
 int RowNumberOfArrayWithMinimumAmount(int[,] arr)
 {
     int RowNumber = 0;
-    int MinimumAmount = 0;
-    for (int k = 0; k < arr.GetLength(1); k++)
-    {
-        MinimumAmount += arr[0, k];
-    }
+    int MinimumAmount = SumOfArrayRow(arr, 0); //присваиваю мин.0-ой строке
     Console.WriteLine($"Сумма 0 индекса строк = {MinimumAmount}");//справочно вывожу для наглядности
-    int SumCurrentRow = 0;
     for (int i = 1; i < arr.GetLength(0); i++)
     {
-        SumCurrentRow = 0;
-        for (int j = 0; j < arr.GetLength(1); j++)
+        Console.WriteLine($"Сумма {i} индекса строк = {SumOfArrayRow(arr, i)}");//справочно вывожу для наглядности
+        if (SumOfArrayRow(arr, i) < MinimumAmount)
         {
-            SumCurrentRow += arr[i, j];
-        }
-        Console.WriteLine($"Сумма {i} индекса строк = {SumCurrentRow}");//справочно вывожу для наглядности
-        if (SumCurrentRow < MinimumAmount)
-        {
-            MinimumAmount = SumCurrentRow;
+            MinimumAmount = SumOfArrayRow(arr, i);
             RowNumber = i;
         }
     }
